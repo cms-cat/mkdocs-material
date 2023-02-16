@@ -13,3 +13,9 @@ The image can be pulled via:
 ```bash
 docker pull ghcr.io/cms-cat/mkdocs-material:latest
 ```
+
+From an existing MkDocs installation directory:
+
+```bash
+docker run --rm -it -p 8000:8000 -v $PWD:/docs ghcr.io/cms-cat/mkdocs-material:latest
+```
