@@ -53,9 +53,9 @@ template: |
   ## Usage
   To pull the image run
   ```bash
-  docker pull ghcr.io/afritzler/mkdocs-material:$RESOLVED_VERSION
+  docker pull ghcr.io/cms-cat/mkdocs-material:$RESOLVED_VERSION
   ```
   Using the image as a base image in your Dockerfile
   ```
-  FROM ghcr.io/afritzler/mkdocs-material:$RESOLVED_VERSION
+  FROM ghcr.io/cms-cat/mkdocs-material:$RESOLVED_VERSION
   ```

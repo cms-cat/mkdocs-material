@@ -1,6 +1,6 @@
 # mkdocs-material
 
-[![Publish Image](https://github.com/afritzler/mkdocs-material/actions/workflows/publish-docker.yml/badge.svg)](https://github.com/afritzler/mkdocs-material/actions/workflows/publish-docker.yml)
+[![Publish Image](https://github.com/cms-cat/mkdocs-material/actions/workflows/publish-docker.yml/badge.svg)](https://github.com/cms-cat/mkdocs-material/actions/workflows/publish-docker.yml)
 
 Wrapper project to build `linux/amd64`, `linux/arm64` and `linux/arm/v7` Docker images of [mkdocs-material](https://github.com/squidfunk/mkdocs-material).
 
@@ -11,5 +11,5 @@ Please refer to the official [Material for MkDocs documentation](https://squidfu
 The image can be pulled via:
 
 ```bash
-docker pull ghcr.io/afritzler/mkdocs-material:latest
+docker pull ghcr.io/cms-cat/mkdocs-material:latest
 ```
