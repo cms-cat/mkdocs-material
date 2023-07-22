@@ -11,6 +11,7 @@ COPY requirements-plugins.txt requirements-plugins.txt
 RUN apk add build-base git
 
 # Perform mkdocs-material installation
+RUN pip install --no-cache-dir -U pip
 RUN pip install --no-cache-dir -r requirements.txt \
   && \
     if [ "${WITH_PLUGINS}" = "true" ]; then \
