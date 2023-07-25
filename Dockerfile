@@ -1,5 +1,8 @@
 FROM python:3.11.0-alpine3.15
 
+# Make target platform available
+ARG TARGETPLATFORM
+
 # Build-time flags
 ARG WITH_PLUGINS=true
 
@@ -8,7 +11,10 @@ COPY requirements.txt requirements.txt
 COPY requirements-plugins.txt requirements-plugins.txt
 
 # Needed for native module builds
-RUN apk add build-base git
+RUN apk add build-base git && \
+    if [ "${TARGETPLATFORM}" = "linux/arm/v7" ]; then \
+      apk add libxml2-dev libxslt-dev; \
+    fi
 
 # Perform mkdocs-material installation
 RUN pip install --no-cache-dir -U pip
