@@ -2,6 +2,7 @@ mkdocs-git-revision-date-localized-plugin==1.2.9
 mkdocs-glightbox==0.4.0
 mkdocs-merge==0.9.0
 mkdocs-minify-plugin==0.8.0
+mkdocs-panzoom-plugin==0.1.1
 mkdocs-redirects==1.2.1
 mkdocs-video==1.5.0
 termynal==0.12.1
