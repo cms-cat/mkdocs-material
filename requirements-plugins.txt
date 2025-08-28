@@ -7,4 +7,4 @@ mkdocs-panzoom-plugin==0.3.0
 mkdocs-redirects==1.2.2
 mkdocs-video==1.5.0
 termynal==0.13.0
-mkdocs-include-markdown-plugin==7.1.6
+mkdocs-include-markdown-plugin==7.1.7
