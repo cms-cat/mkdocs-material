@@ -6,5 +6,5 @@ mkdocs-minify-plugin==0.8.0
 mkdocs-panzoom-plugin==0.4.1
 mkdocs-redirects==1.2.2
 mkdocs-video==1.5.0
-termynal==0.13.0
+termynal==0.13.1
 mkdocs-include-markdown-plugin==7.1.7
