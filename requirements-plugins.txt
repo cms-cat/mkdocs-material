@@ -1,4 +1,4 @@
-mkdocs-awesome-nav==3.2.0
+mkdocs-awesome-nav==3.3.0
 mkdocs-git-revision-date-localized-plugin==1.5.0
 mkdocs-glightbox==0.5.2
 mkdocs-header-dropdown==0.3.0
