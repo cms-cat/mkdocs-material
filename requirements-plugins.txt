@@ -4,7 +4,7 @@ mkdocs-glightbox==0.5.2
 mkdocs-header-dropdown==0.3.0
 mkdocs-include-markdown-plugin==7.2.1
 mkdocs-merge==0.11.0
-mkdocs-metadata-enricher-plugin==0.2.1
+mkdocs-metadata-enricher-plugin==0.4.0
 mkdocs-minify-plugin==0.8.0
 mkdocs-panzoom-plugin==0.5.2
 mkdocs-redirects==1.2.2
