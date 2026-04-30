@@ -1,7 +1,7 @@
 mkdocs-awesome-nav==3.3.0
 mkdocs-git-revision-date-localized-plugin==1.5.1
 mkdocs-glightbox==0.5.2
-mkdocs-header-dropdown==0.5.0
+mkdocs-header-dropdown==0.6.0
 mkdocs-include-markdown-plugin==7.2.2
 mkdocs-merge==0.11.0
 mkdocs-metadata-enricher-plugin==0.4.0
