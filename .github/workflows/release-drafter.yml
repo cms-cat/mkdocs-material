@@ -4,14 +4,61 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'requirements.txt'
+      - 'requirements-plugins.txt'
+
+permissions:
+  contents: write
+  pull-requests: read
+
+concurrency:
+  group: release-drafter
+  cancel-in-progress: false
 
 jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
-      # Drafts your next Release notes as Pull Requests are merged into "main"
-      - uses: release-drafter/release-drafter@v7
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Resolve release version
+        id: release_version
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          releases_api="repos/${GITHUB_REPOSITORY}/releases?per_page=100"
+          stable_draft_count="$(
+            gh api --paginate "${releases_api}" \
+              --jq '.[] | select(.draft == true and .prerelease == false) | .id' |
+              wc -l |
+              tr -d '[:space:]'
+          )"
+          if (( stable_draft_count > 1 )); then
+            echo "::error::Found ${stable_draft_count} stable draft releases; expected at most one."
+            exit 1
+          fi
+
+          gh api --paginate "${releases_api}" \
+            --jq '.[] | select(.draft == false and .prerelease == false) | .tag_name' |
+            python3 .github/scripts/resolve_release_version.py \
+              --requirements requirements.txt >> "${GITHUB_OUTPUT}"
+
+      - name: Update release draft
+        uses: release-drafter/release-drafter@v7
         with:
           config-name: release-drafter.yml
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: '${{ steps.release_version.outputs.version }} 🌈'
+          tag: '${{ steps.release_version.outputs.version }}'
+          commitish: '${{ github.sha }}'
+          footer: |
+            ## Usage
+            To pull the image run
+            ```bash
+            docker pull ghcr.io/cms-cat/mkdocs-material:${{ steps.release_version.outputs.version }}
+            ```
+            Using the image as a base image in your Dockerfile
+            ```
+            FROM ghcr.io/cms-cat/mkdocs-material:${{ steps.release_version.outputs.version }}
+            ```

@@ -1,35 +1,26 @@
-name-template: '$RESOLVED_VERSION 🌈'
-tag-template: '$RESOLVED_VERSION'
 categories:
   - title: '🚀 Features'
-    labels:
-      - 'feature'
-      - 'enhancement'
+    when:
+      labels:
+        - 'feature'
+        - 'enhancement'
   - title: '🐛 Bug Fixes'
-    labels:
-      - 'fix'
-      - 'bugfix'
-      - 'bug'
+    when:
+      labels:
+        - 'fix'
+        - 'bugfix'
+        - 'bug'
   - title: '🧰 Maintenance'
-    labels:
-      - 'chore'
-      - 'dependencies'
-      - 'marketing'
+    when:
+      labels:
+        - 'chore'
+        - 'dependencies'
+        - 'marketing'
+  - type: 'pre-exclude'
+    when:
+      label: 'skip-changelog'
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
-version-resolver:
-  major:
-    labels:
-      - 'major'
-  minor:
-    labels:
-      - 'minor'
-  patch:
-    labels:
-      - 'patch'
-  default: patch
-exclude-labels:
-  - 'skip-changelog'
 autolabeler:
   - label: 'documentation'
     files:
@@ -49,13 +40,3 @@ autolabeler:
 template: |
   ## Changes
   $CHANGES
-
-  ## Usage
-  To pull the image run
-  ```bash
-  docker pull ghcr.io/cms-cat/mkdocs-material:$RESOLVED_VERSION
-  ```
-  Using the image as a base image in your Dockerfile
-  ```
-  FROM ghcr.io/cms-cat/mkdocs-material:$RESOLVED_VERSION
-  ```
